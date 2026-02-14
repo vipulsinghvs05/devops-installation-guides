@@ -12,7 +12,6 @@ This repository contains step-by-step installation guides for commonly used DevO
 - Jenkins
 - Docker
 - Kubernetes
-- Nginx
 - Ansible
 
 > ⚠️ Note: These steps are tested on fresh systems and meant for learning.
