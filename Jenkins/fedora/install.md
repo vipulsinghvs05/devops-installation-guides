@@ -1,8 +1,9 @@
-# Jenkins Installation on Ubuntu
+# Jenkins Installation on Fedora
 
 ## OS Support
-- Ubuntu 22.04 LTS (recommended)
-- Ubuntu 24.04 LTS
+- Fedora 39+
+- Rwd Hat Enterprise linux (REHL)
+- Rocky Linux
 
 ## Java Requirement
 - Java 17 (LTS – recommended)
@@ -14,11 +15,12 @@
 
 ## Step 1: Update system
 ```bash
-sudo apt update && sudo apt upgrade -y
+sudo dnf update -y
+sudo reboot
 
 ## Step 2: Install Java
 
-sudo apt install fontconfig openjdk-21-jre
+sudo dnf install java-21-openjdk -y
 
 ## To check java version
 
@@ -26,19 +28,16 @@ java -version
 
 ## Step 3: Add Jenkins repository key
 
-sudo wget -O /etc/apt/keyrings/jenkins-keyring.asc \
-https://pkg.jenkins.io/debian-stable/jenkins.io-2026.key
+sudo rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io-2023.key
 
 ## Step 4: Add Jenkins repository
 
-echo "deb [signed-by=/etc/apt/keyrings/jenkins-keyring.asc]" \
-https://pkg.jenkins.io/debian-stable binary/ | sudo tee \
-/etc/apt/sources.list.d/jenkins.list > /dev/null
+sudo curl -o /etc/yum.repos.d/jenkins.repo \
+https://pkg.jenkins.io/redhat-stable/jenkins.repo
 
 ## Step 5: Install Jenkins
 
-sudo apt update
-sudo apt install jenkins -y
+sudo dnf install jenkins -y
 
 ## Step 6: Start and enable Jenkins
 
@@ -54,7 +53,7 @@ service jenkins status
 ## Step 7: Access Jenkins UI
 ## Open your browser and go to:
 
-#local machine
+#Local machince
 http://localhost:8080
 
 #Cloud VM / Remote server:
