@@ -21,35 +21,34 @@ sudo apt update && sudo apt upgrade -y
 sudo apt install fontconfig openjdk-21-jre
 ```
 ## To check java version
-
+```bash
 java -version
-
+```
 ## Step 3: Add Jenkins repository key
-
+```bash
 sudo wget -O /etc/apt/keyrings/jenkins-keyring.asc \
 https://pkg.jenkins.io/debian-stable/jenkins.io-2026.key
-
+```
 ## Step 4: Add Jenkins repository
-
+```bash
 echo "deb [signed-by=/etc/apt/keyrings/jenkins-keyring.asc]" \
 https://pkg.jenkins.io/debian-stable binary/ | sudo tee \
 /etc/apt/sources.list.d/jenkins.list > /dev/null
-
+```
 ## Step 5: Install Jenkins
-
+```bash
 sudo apt update
 sudo apt install jenkins -y
-
+```
 ## Step 6: Start and enable Jenkins
-
+```bash
 sudo systemctl start jenkins
 sudo systemctl enable jenkins
-
+```
 ## Check Jenkins status:
-
+```bash
 systemctl status jenkins
-#or
-service jenkins status
+```
 
 ## Step 7: Access Jenkins UI
 ## Open your browser and go to:
@@ -61,7 +60,7 @@ http://localhost:8080
 http://<server-public-ip>:8080
 
 ## Get initial admin password:
-
+```bash
 sudo cat /var/lib/jenkins/secrets/initialAdminPassword
-
+```
 
