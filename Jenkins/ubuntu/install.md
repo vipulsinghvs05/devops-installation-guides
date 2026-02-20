@@ -57,7 +57,7 @@ systemctl status jenkins
 <p>http://localhost:8080<p>
 
 ## On Cloud VM/Remote server:
-<p>http://<server-public-ip>:8080<p>
+<p>http://server-public-ip:8080<p>
 
 ## Get initial admin password:
 ```bash
