@@ -53,11 +53,11 @@ systemctl status jenkins
 ## Step 7: Access Jenkins UI
 ## Open your browser and go to:
 
-#local machine
-<h1>http://localhost:8080</h1>
+## On local machine
+<p>http://localhost:8080<p>
 
-#Cloud VM / Remote server:
-http://<server-public-ip>:8080
+## On Cloud VM/Remote server:
+<p>http://<server-public-ip>:8080<p>
 
 ## Get initial admin password:
 ```bash
