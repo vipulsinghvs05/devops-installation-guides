@@ -2,7 +2,7 @@
 
 ## OS Support
 - Fedora 39+
-- Rwd Hat Enterprise linux (REHL)
+- Red Hat Enterprise linux (REHL)
 - Rocky Linux
 
 ## Java Requirement
@@ -16,41 +16,46 @@
 ## Step 1: Update system
 ```bash
 sudo dnf update -y
-sudo reboot
 ```
-## Step 2: Install Java
+## Step 2: Add Jenkins repository
 ```bash
-sudo dnf install java-21-openjdk -y
+sudo wget -O /etc/yum.repos.d/jenkins.repo \
+    https://pkg.jenkins.io/rpm-stable/jenkins.repo
 ```
-## To check java version
+
+## Step 3: Upgrading system 
 ```bash
-java -version
+sudo dnf upgrade
 ```
-## Step 3: Add Jenkins repository key
+## Step 4: Install Java
 ```bash
-sudo rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io-2023.key
-```
-## Step 4: Add Jenkins repository
-```bash
-sudo curl -o /etc/yum.repos.d/jenkins.repo \
-https://pkg.jenkins.io/redhat-stable/jenkins.repo
+sudo dnf install fontconfig java-21-openjdk
 ```
 ## Step 5: Install Jenkins
 ```bash
 sudo dnf install jenkins -y
 ```
-## Step 6: Start and enable Jenkins
+## Step 6: Daemon reload
 ```bash
-sudo systemctl start jenkins
+sudo systemctl daemon-reload
+```
+## Step 7: Start and enable Jenkins
+```bash
 sudo systemctl enable jenkins
+sudo systemctl start jenkins
 ```
 ## Check Jenkins status:
 ```bash
 systemctl status jenkins
 ```
+## Step 8: Allow jenkins port on firewall🔥
+```bash 
+sudo firewall-cmd --permanent --add-port=8080/tcp
+sudo firewall-cmd --reload
+```
 
-## Step 7: Access Jenkins UI
-### Open your browser and go to:
+## Step 9: Access Jenkins UI
+### Open browser and go to:
 
 ### On Local machince
 <p>http://localhost:8080</p>
