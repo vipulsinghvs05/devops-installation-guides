@@ -41,8 +41,7 @@ sudo systemctl daemon-reload
 ```
 ## Step 7: Start and enable Jenkins
 ```bash
-sudo systemctl enable jenkins
-sudo systemctl start jenkins
+sudo systemctl enable --now jenkins
 ```
 ## Check Jenkins status:
 ```bash
@@ -55,15 +54,18 @@ sudo firewall-cmd --reload
 ```
 
 ## Step 9: Access Jenkins UI
-### Open browser and go to:
 
-### On Local machince
-<p>http://localhost:8080</p>
+### On Local VM:
+```bash 
+http://localhost:8080
+```
 
 ### On Cloud VM / Remote server:
-<p>http://server-public-ip:8080</p>
+```bash
+http://<VM-IP>:8080
+```
 
-## Get initial admin password:
+## Step 10: Get initial admin password:
 ```bash
 sudo cat /var/lib/jenkins/secrets/initialAdminPassword
 ```
