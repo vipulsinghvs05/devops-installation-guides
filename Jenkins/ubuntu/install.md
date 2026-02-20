@@ -15,11 +15,11 @@
 ## Step 1: Update system
 ```bash
 sudo apt update && sudo apt upgrade -y
-
+```
 ## Step 2: Install Java
-
+```bash
 sudo apt install fontconfig openjdk-21-jre
-
+```
 ## To check java version
 
 java -version
