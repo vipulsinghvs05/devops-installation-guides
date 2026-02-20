@@ -54,7 +54,7 @@ systemctl status jenkins
 ## Open your browser and go to:
 
 #local machine
-http://localhost:8080
+<h1>http://localhost:8080</h1>
 
 #Cloud VM / Remote server:
 http://<server-public-ip>:8080
